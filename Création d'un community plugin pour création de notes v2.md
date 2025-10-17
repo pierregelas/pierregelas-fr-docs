@@ -97,6 +97,16 @@ Sélecteur de CSV (au lieu du “dernier” seulement) • Niveaux de verbosité
 - **v0.x — Logger commun (Minutes/Journal/Archives/Restes)**  
 Brancher le logger conditionnel (ON/OFF) sur toutes les actions pour des traces uniformes.
 
+- [x] Squelette plugin v2 avec `src/core/` mutualisé.
+- [x] Première action branchée (import WordPress CSV) + UI commande.
+- [ ] Migrer progressivement les autres actions sur `@core/*` (sans casse).
+- [ ] Paramétrage centralisé (Settings tab) pour options communes (dossiers, nommage, compat Windows, normalisation).
+- [ ] Panneau “Logs d’import” intégré (historique, export .md).
+- [ ] Tests unitaires & intégration (CI locale).
+- [ ] Publication Community Plugin : checklist Obsidian (manifest, versions, README, icône).
+- [ ] Documentation développeur (diagrammes de flux, conventions YAML maître).
+- [ ] Internationalisation minimale (EN/FR) des libellés UI.
+- [ ] Télémetrie optionnelle (opt‑in) pour métriques anonymisées (volumétrie import).
 
 > Encadré (hors-scope, à noter pour plus tard)
 > 
@@ -143,3 +153,10 @@ Brancher le logger conditionnel (ON/OFF) sur toutes les actions pour des traces 
     - Build consolidé: `tsconfig` (ES2020, strict) et `esbuild` target ES2020.
     - Dépôt public **pierregelas-fr-docs** créé; dossier local `docs/` branché en dépôt Git (miroir 1:1) + README d’index.
     - Ajout des URLs GitHub dans les documents de projet (références externes).
+
+- 2025-10-17 — Mise en place de l’architecture **`src/core/*`** (types, transform, yamlMaster, mapping, files, csv, upsert, log).
+- 2025-10-17 — Ajout de l’action **Importer un CSV WordPress** (`src/actions/importWordpress.ts`) et de la commande UI.
+- 2025-10-17 — Picker CSV (FuzzySuggestModal) + **prévisualisation** (dry‑run) avec confirmation.
+- 2025-10-17 — Gestion erreurs automatique → `NEW/ERRORS/`.
+- 2025-10-17 — `maj_wp` fixé à **false** pour tous les imports.
+- 2025-10-17 — Émetteur YAML robuste (auto‑quoting scalaires/listes).
