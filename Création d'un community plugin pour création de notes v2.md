@@ -136,3 +136,10 @@ Brancher le logger conditionnel (ON/OFF) sur toutes les actions pour des traces 
     
 - **2025-10-16 18:40** — v0.5 (Restes du futur P1/P2)  
     Création + mise à jour « Restes » (mêmes dérivations qu’Archives), conversion `_WP.webp → _REI.webp`, validations & préconditions OK.
+    
+- **2025-10-17 13:50** — Infra & publication GitHub (plugin + docs)
+    - Dépôt public **pierregelas-fr** publié (alignement identité: `id` manifest ⇄ dossier, `package.json` mis à jour).
+    - README remplacé par une version projet (installation, commandes).
+    - Build consolidé: `tsconfig` (ES2020, strict) et `esbuild` target ES2020.
+    - Dépôt public **pierregelas-fr-docs** créé; dossier local `docs/` branché en dépôt Git (miroir 1:1) + README d’index.
+    - Ajout des URLs GitHub dans les documents de projet (références externes).
