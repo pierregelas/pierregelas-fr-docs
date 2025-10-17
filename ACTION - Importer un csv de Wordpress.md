@@ -17,7 +17,7 @@
 | lien_projet                                                                    | wp_categories                                     | **Names hiérarchiques**: `split('>')` → `trim` → **dédupliquer (ordre conservé)** → transformer chaque segment en **"[[Name]]"** (casse/accents conservés). Si vide ⇒ `lien_projet: []`. |
 | lien_restes                                                                    | *(aucune colonne correspondante dans l’export)*   | Laisser vide.                                                                                                                                                                            |
 | MAJ: ______________________________________________________________________    | *(ligne de section – émise telle quelle)*         | *(aucune)*                                                                                                                                                                               |
-| maj_wp                                                                         | *(case à cocher calculée par l’action)*           | **Booléen**: `true` si la note a été **créée** ou **modifiée** durant l’import, sinon `false`.                                                                                           |
+| maj_wp                                                                         | *(case à cocher calculée par l’action)*           | **Booléen**: toujours false                                                                                                                                                              |
 | POST: ______________________________________________________________________   | *(ligne de section – émise telle quelle)*         | *(aucune)*                                                                                                                                                                               |
 | post_cat                                                                       | wp_categories                                     | Convertir **names hiérarchiques** en **liste**: `split('>')` → `trim` → **dédupliquer (ordre conservé)**.                                                                                |
 | post_date                                                                      | wp_date                                           | Remplacer l'espace par `T` (ex.: `YYYY-MM-DD HH:MM:SS` → `YYYY-MM-DDTHH:MM:SS`). Si seule la date est fournie, **ajouter** `T00:00:00`.                                                  |
@@ -40,13 +40,7 @@
 
 `lien_projet` est généré **directement** depuis `wp_categories` qui contient les **names** (pas les slugs) hiérarchisés par le caractère `>` : on split sur `>`, on trim les espaces, on ignore les segments vides, on **conserve casse et accents**, on **déduplique en gardant l’ordre**, puis on transforme chaque segment en wikilink au format **"[[Name]]"** (guillemets doubles inclus) pour produire la liste YAML ; si `wp_categories` est vide/absent ⇒ `lien_projet: []` (ex.: `Vidéo>Minutes` ⇒ `[[Vidéo]]`, `[[Minutes]]`).
 
-
-## Note — `maj_wp` (case à cocher)
-- Type: booléen (checkbox).
-- Remplissage par l’action : `true` si la note a été **créée** ou **modifiée** pendant cet import, sinon `false`.
-
-
-## Journal (LOG)
+## Logs
 - 2025-10-17 — Ajout de la modale de prévisualisation (dry‑run) avec boutons **Mettre à jour** / **Annuler**.
 - 2025-10-17 — Branchement I/O Obsidian (FileSystemAdapter), picker CSV via **FuzzySuggestModal**.
 - 2025-10-17 — Gestion des erreurs : création automatique de notes dans `NEW/ERRORS/` pour les lignes en échec.
