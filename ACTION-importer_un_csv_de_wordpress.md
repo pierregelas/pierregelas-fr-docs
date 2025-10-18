@@ -56,11 +56,12 @@
 - [x] Gestion erreurs → `NEW/ERRORS/` + log.
 - [x] `maj_wp` = false.
 - [ ] création conditionnelle du corps de la note
+- [ ] **Options**: Switch **Créer seulement / MAJ seulement**.
 - [ ] Détail de prévisualisation par ligne (premiers titres créés/MAJ/erreurs).
 - [ ] Option multi‑sélection de CSV et exécution séquentielle.
 - [ ] Barre de progression et estimation (grossière) sur gros CSV.
-- [ ] Option Dry‑run par défaut (toggle dans la modale).
-- [ ] Paramètres d’action (dossier sortie, règles de nommage) via Settings.
+- [ ] **Options**: Dry‑run par défaut (toggle dans la modale).
+- [ ] **Options**: Paramètres (dossier sortie, strict noms Windows). Paramètres d’action (dossier sortie, règles de nommage) via Settings.
 - [ ] Normalisation d’URL renforcée (protocol‑relative `//`, `www.`) optionnelle.
 - [ ] Compat noms de fichiers **Windows** (mode strict optionnel).
 - [ ] Tests unitaires `core/transform`, `yamlMaster`, `mapping.wordpress`.
@@ -134,63 +135,5 @@ résultat :
 Dans la modale, en haut, demander en liste déroulante (tous les dossiers existants dans la vault) ou enregistrer les fichiers
 
 ## Notes de test
-le titre de la note (wp_title) n'est pas complet ! il manque le point à la fin, exemple : 
-
-le yaml : 
-```yaml
----
-cover: https://www.pierregelas.fr/wp-content/uploads/2024/08/policebadaud_vign.webp
-IMAGES: ______________________________________________________________________
-img_alt:
-- Intervention policière et badauds, avenue Gambetta, Paris 20e. Samedi 10 août 2024 à 10h50.
-img_descr: []
-img_filename:
-- policebadaud_vign.webp
-img_id:
-- "6079"
-img_legende:
-- Intervention policière et badauds, avenue Gambetta, Paris 20e. Samedi 10 août 2024 à 10h50.
-img_titre:
-- policebadaud_vign
-img_url:
-- https://www.pierregelas.fr/wp-content/uploads/2024/08/policebadaud_vign.webp
-LIEN: ______________________________________________________________________
-lien_archives:
-lien_journal:
-lien_projet:
-- "[[Vidéo]]"
-- "[[Minutes]]"
-lien_restes:
-MAJ: ______________________________________________________________________
-maj_wp: false
-POST: ______________________________________________________________________
-post_cat:
-- Vidéo
-- Minutes
-post_date: 2024-08-10T08:50:00
-post_descr:
-post_extrait:
-post_id: 6078
-post_mod: 2024-08-11T14:19:36
-post_perma: https://www.pierregelas.fr/intervention-policiere-et-badauds-avenue-gambetta-paris-20e-samedi-10-aout-2024-a-10h50/
-post_titre_1: Intervention policière et badauds, avenue Gambetta, Paris 20e.
-post_titre_2: Samedi 10 août 2024 à 10h50.
-post_titre_full: Intervention policière et badauds, avenue Gambetta, Paris 20e. Samedi 10 août 2024 à 10h50.
-post_vid_url: https://youtu.be/e7zVJHkpYfY
-tags:
-- paris-20e
-- police
-WP: ______________________________________________________________________
-wp_carnet_link:
-wp_carnet_on: false
-wp_status: publish
----
-```
-
-le titre de la note : Intervention policière et badauds, avenue Gambetta, Paris 20e. Samedi 10 août 2024 à 10h50
-
-devrait être : Intervention policière et badauds, avenue Gambetta, Paris 20e. Samedi 10 août 2024 à 10h50.
-
-Donc wp_title n'est pas utilisé exactement ! C'est important qu'il le soit car si j'exporte ensuite un csv d'obsidian pour modif vers wordpress, cela va modifier le titre du post sur wordpress
 
 ## Logs
