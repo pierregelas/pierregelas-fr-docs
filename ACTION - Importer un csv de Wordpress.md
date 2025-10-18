@@ -1,3 +1,4 @@
+
 # Tableau — Mapping YAML maître ↔ Source (WordPress CSV) + Règles
 
 | **YAML maître**                                                                | **Correspondance mapping source (CSV WordPress)** | **Règles (calcul / dérivation / modif)**                                                                                                                                                 |

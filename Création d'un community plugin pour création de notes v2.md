@@ -45,7 +45,7 @@ L'objectif est d'avoir une version 0.1 parfaitement fonctionnelle avec les actio
 ## Actions à créer pour cette version : 
 
 - Créer une note _Minutes_ : document de projet [[ACTION - Créer une note Minutes]]
-- Créer une note _Journal_ : document de projet [[ACTION - Créer une note Journal]]
+- Créer une note _Journal_ : document de projet [[ACTION-creer_une_note_journal]]
 - Créer/Mettre à jour une note Archives du futur : document de projet [[ACTION - Créer-Mettre à jour une note Archives du futur]]
 - Créer/Mettre à jour une note Restes du futur : document de projet [[ACTION – Créer-Mettre à jour une note Restes du futur]]
 - Journal → Recalculer titres depuis post_titre_1 : document de projet [[ACTION – Journal → Recalculer titres depuis post_titre_1]]
@@ -78,7 +78,8 @@ Il est également indispensable de toujours consulter https://docs.obsidian.md/P
 - **v0.6 — 2025-10-17 : Tags v2 (WP→Obsidian)**  
 Action **Tags** v2: modale toujours affichée (7 groupes), booléens YAML **natifs** (`wp_update`), **logger conditionnel** (ON/OFF), **onglet Paramètres**.
     
-
+- [x] Squelette plugin v2 avec `src/core/` mutualisé.
+- [x] Première action branchée (import WordPress CSV) + UI commande.
 ### 🔜 À venir
 
 - **v0.6 (partie 2) — Améliorations Tags**  
@@ -97,8 +98,7 @@ Sélecteur de CSV (au lieu du “dernier” seulement) • Niveaux de verbosité
 - **v0.x — Logger commun (Minutes/Journal/Archives/Restes)**  
 Brancher le logger conditionnel (ON/OFF) sur toutes les actions pour des traces uniformes.
 
-- [x] Squelette plugin v2 avec `src/core/` mutualisé.
-- [x] Première action branchée (import WordPress CSV) + UI commande.
+
 - [ ] Migrer progressivement les autres actions sur `@core/*` (sans casse).
 - [ ] Paramétrage centralisé (Settings tab) pour options communes (dossiers, nommage, compat Windows, normalisation).
 - [ ] Panneau “Logs d’import” intégré (historique, export .md).
