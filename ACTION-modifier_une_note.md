@@ -5,15 +5,34 @@ L’action ouvre une modale et permet — dans cette première version — **de 
 
 ## Roadmap
 
--  v0.1: édition des `tags` via modale (sélection stricte, autocomplétion).
-    
--  v0.2: ajout d’autres champs frontmatter courants (p.ex. `post_descr`, `post_vid_url`).
-    
--  v0.3: aperçu des changements avant écriture (diff minimal).
-    
--  v0.4: raccourcis clavier (↑/↓+Enter sur la liste; Esc pour fermer; Cmd/Ctrl+Enter pour valider).
+### ✅ Livré
 
+-  Action **Modifier une note (v0.1 tags)** : saisie+autocomplétion (source `/wp_tags/ob_tags_table.md`, colonne `ob_tags_slug`), chips supprimables, ordre préservé, écriture seulement si changement (`maj_wp: true` si write).
+    
+-  **Import CSV WordPress (base + preview)** : sélection CSV via modale, prévisualisation (dry-run) puis exécution ; création/MAJ/erreurs comptées ; notes en erreur → `NEW/ERRORS` ; `maj_wp: false` ; nom de fichier = `wp_titre` ; conserver accents/espaces/?/! ; mapping v2 (cover depuis `wp_img_url`, `post_mod = wp_date_modified`, `lien_projet` depuis `wp_categories` séparé par `>` en wikilinks, `wp_carnet_on` bool).
+    
+-  **UI/Build** : commande enregistrée, correctif `tsconfig.json`, I/O Vault + FileSystemAdapter.
+    
+-  **Index de navigation GitHub** : `docs_file_tree_url.md` et `plugin_file_tree_url.md`.
+    
 
+### 🔜 À venir
+
+-  **Modifier une note (v0.2 multi-champs)** : ajouter des champs frontmatter (`post_descr`, `post_vid_url`, etc.) avec validations dédiées.
+    
+-  **Preview diff par champ** avant écriture.
+    
+-  **Navigation clavier** dans la modale (↑/↓ + Enter ; Esc pour fermer ; Cmd/Ctrl+Enter pour valider).
+    
+-  **Notice de résumé** après write (`+n, −m`).
+    
+-  **Tests unitaires/intégration** : `yamlPatch`, `tagsTable`, cas d’erreur table manquante.
+    
+-  **Refactor progressif** : mutualiser services (`src/services/*`) puis monter sur `@core/*` sans casse.
+    
+-  **Paramètres** d’action (dossier sortie, compat noms Windows, normalisation URL) via Settings.
+    
+-  **Docs** : CONTRIBUTING/house rules pour PR assistées (Codex/Copilot), QA checklist.
 
 ## ACTION-modifier_une_note (v0.1 tags)
 

@@ -160,3 +160,11 @@ Brancher le logger conditionnel (ON/OFF) sur toutes les actions pour des traces 
 - 2025-10-17 — Gestion erreurs automatique → `NEW/ERRORS/`.
 - 2025-10-17 — `maj_wp` fixé à **false** pour tous les imports.
 - 2025-10-17 — Émetteur YAML robuste (auto‑quoting scalaires/listes).
+
+- **2025-10-18 — Action “Modifier une note (v0.1 tags)”**: modale avec saisie+autocomplétion (source: `/wp_tags/ob_tags_table.md`, **`ob_tags_slug`**), liste de tags sélectionnés sous forme de chips, déduplication, ordre préservé, ajout(s) en fin; écriture seulement si changement; `maj_wp: true` en cas de write; si la table est absente, saisie désactivée (suppression de tags existants toujours possible).
+    
+- **2025-10-18 — Import CSV WordPress (itérations)**: sélection CSV par modale, prévisualisation dry-run, exécution sur confirmation; dossier de sortie **`NEW/`**; notes en erreur vers **`NEW/ERRORS`**; mapping revu (`cover` depuis `wp_img_url`, `post_titre_full = wp_titre`, `post_mod = wp_date_modified`, `wp_carnet_on` → bool “non-vide = true”), règle **`lien_projet`** depuis `wp_categories` (split par `>` → wikilinks), gestion des champs images `img_*` en liste YAML si multiple; `maj_wp` **false** à l’import (sources = WP); sanitation des noms: conserver accents/espaces/`?`/`!`.
+    
+- **2025-10-18 — UI & build**: remplacement du picker “1er CSV trouvé” par modale, correctifs `tsconfig.json` (virgule manquante), commandes enregistrées dans la palette (import + modifier une note).
+    
+- **2025-10-18 — Docs & navigation**: ajout des index **`docs_file_tree_url.md`** et **`plugin_file_tree_url.md`** pour ouvrir facilement n’importe quel fichier en RAW sur GitHub. [raw.githubusercontent.com](https://raw.githubusercontent.com/pierregelas/pierregelas-fr-docs/refs/heads/main/docs_file_tree_url.md)
