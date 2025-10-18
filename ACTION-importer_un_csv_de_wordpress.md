@@ -55,6 +55,7 @@
 - [x] Picker CSV + prévisualisation (dry‑run) avec confirmation.
 - [x] Gestion erreurs → `NEW/ERRORS/` + log.
 - [x] `maj_wp` = false.
+- [ ] création conditionnelle du corps de la note
 - [ ] Détail de prévisualisation par ligne (premiers titres créés/MAJ/erreurs).
 - [ ] Option multi‑sélection de CSV et exécution séquentielle.
 - [ ] Barre de progression et estimation (grossière) sur gros CSV.
@@ -66,3 +67,66 @@
 - [ ] Tests d’intégration sur un échantillon CSV (3 cas: simple, multi‑images, update).
 - [ ] Panneau de logs consultable (export .md) au lieu de simples Notices.
 - [ ] Documentation utilisateur (README + doc Obsidian).
+
+
+## Corps de la note
+Dans l'ordre :
+Pour toutes : (si plusieurs entrées prendre la 1ère)
+```
+## Vignette
+
+![](wp_img_url)
+```
+
+Si post_vid_url / wp_a_videolink_gen existe (non vide) :
+
+```
+## Vidéo
+
+![](wp_a_videolink_gen)
+```
+
+Pour toutes : 
+
+```
+## Notes
+
+![[nomdelanote + _notes]]
+```
+
+
+### Exemple 1, sans wp_a_videolink_gen
+- titre de la note : Arbres, immeuble, nuit. Paris. Journal du mardi 2 janvier 2024.
+- wp_img_url: https://www.pierregelas.fr/wp-content/uploads/2024/11/310_9142_2024-01-02_21h07_WP.webp
+
+résultat : 
+
+```
+## Vignette
+
+![](https://www.pierregelas.fr/wp-content/uploads/2024/11/310_9142_2024-01-02_21h07_WP.webp)
+
+## Notes
+
+![[Arbres, immeuble, nuit. Paris. Journal du mardi 2 janvier 2024._notes]]
+```
+
+### Exemple 2, avec wp_a_videolink_gen
+- titre de la note : Ravie et Raoûl glandent près de la fenêtre. Samedi 30 novembre 2024 à 17h51.
+- wp_img_url: https://www.pierregelas.fr/wp-content/uploads/2025/06/2024-11-30-17-51_ravieetr_mvign.webp
+- wp_a_videolink_gen: https://youtu.be/aEdyZYL0lWs
+
+```
+## Vignette
+
+![](https://www.pierregelas.fr/wp-content/uploads/2025/06/2024-11-30-17-51_ravieetr_mvign.webp)
+
+## Vidéo 
+
+![](https://youtu.be/aEdyZYL0lWs)
+
+## Notes
+
+![[Ravie et Raoûl glandent près de la fenêtre. Samedi 30 novembre 2024 à 17h51._notes]]
+```
+
