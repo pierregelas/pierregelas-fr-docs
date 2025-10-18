@@ -44,14 +44,14 @@ L'objectif est d'avoir une version 0.1 parfaitement fonctionnelle avec les actio
 
 ## Actions à créer pour cette version : 
 
-- Créer une note _Minutes_ : document de projet [[ACTION - Créer une note Minutes]]
+- Créer une note _Minutes_ : document de projet [[ACTION_creer_une_note_minutes]]
 - Créer une note _Journal_ : document de projet [[ACTION-creer_une_note_journal]]
-- Créer/Mettre à jour une note Archives du futur : document de projet [[ACTION - Créer-Mettre à jour une note Archives du futur]]
-- Créer/Mettre à jour une note Restes du futur : document de projet [[ACTION – Créer-Mettre à jour une note Restes du futur]]
-- Journal → Recalculer titres depuis post_titre_1 : document de projet [[ACTION – Journal → Recalculer titres depuis post_titre_1]]
+- Créer/Mettre à jour une note Archives du futur : document de projet [[ACTION-creer_mettre_a_jour_une_note_archives_du_futur]]
+- Créer/Mettre à jour une note Restes du futur : document de projet [[ACTION-creer_mettre_a_jour_une_note_restes_du futur]]
+- Journal → Recalculer titres depuis post_titre_1 : document de projet [[ACTION-journal_recalculer_titres_depuis_post_titre_1]]
 
 ## Robustesse
-Il est très important de voir les choses dans un cadre général et de hauteur, pour simplifier le code, l'alléger, selon les normes demandées par Obsidian pour les community manager dans le document [[AGENTS_Obsidian community plugin]]
+Il est très important de voir les choses dans un cadre général et de hauteur, pour simplifier le code, l'alléger, selon les normes demandées par Obsidian pour les community manager dans le document [[AGENTS_obsidian_community_plugin]]
 
 Il est également indispensable de toujours consulter https://docs.obsidian.md/Plugins/Getting+started/Build+a+plugin et ses sous-pages qui contiennent toutes les informations nécessaires.
 
