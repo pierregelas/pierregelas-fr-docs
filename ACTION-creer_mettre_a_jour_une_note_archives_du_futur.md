@@ -1,6 +1,6 @@
 ---
 doc_id: action_archives_du_futur
-titre: "ACTION - Créer-Mettre à jour une note Archives du futur"
+titre: ACTION - Créer-Mettre à jour une note Archives du futur
 type_doc: action
 version: v1
 version_precedente: none
