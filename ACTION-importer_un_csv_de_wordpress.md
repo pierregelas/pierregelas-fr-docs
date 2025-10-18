@@ -1,5 +1,77 @@
+---
+doc_id: action_importer_csv_wp
+rAwUrl: https://raw.githubusercontent.com/pierregelas/pierregelas-fr-docs/refs/heads/main/ACTION-importer_un_csv_de_wordpress.md
+titre_palette: "Importer un CSV Wordpress"
+type_doc: action
+version: v0
+date_maj: 2025-10-15
+etat: courant
+---
 
-# Tableau — Mapping YAML maître ↔ Source (WordPress CSV) + Règles
+## tl,dr
+
+> [!info] 
+> résumé tld,dr en langage naturel sans jargon de ce que cette action fait actuellement. Accompagné d'un court paragraphe sur les ajouts futurs basé sur ## Roadmap v0 to v1 ### à faire.
+> quand toutes les tâches de ### à faire sont faites, proposer de passer à la version suivante et créer une nouvelle section roadmap
+
+
+
+
+
+## Roadmap v0 to v1
+
+
+> [!info] Règles pour toutes les actions
+> Chaque section de roadmap va toujours d'une version entière à une autre, v0 vers v1, v1 vers v2, etc. 
+
+
+### fait
+
+> [!info]
+> basé sur les logs, déplacement automatique des checkbox plus bas. La forme doit être : 
+> ```
+> - [ ] copie de la description - date du déplacement en section `fait` // (tout le texte en rayé)
+> ```
+
+> - [x] Import basique CSV → YAML maître, création/mise à jour idempotente par `post_id`.
+
+- [x] Picker CSV + prévisualisation (dry‑run) avec confirmation.
+- [x] Gestion erreurs → `NEW/ERRORS/` + log.
+- [x] `maj_wp` = false.
+
+### à faire
+- [ ] création conditionnelle du corps de la note
+- [ ] **Options**: Switch **Créer seulement / MAJ seulement**.
+
+- [ ] **Options**: Dry‑run par défaut (toggle dans la modale).
+- [ ] **Options**: Paramètres (dossier sortie, strict noms Windows). Paramètres d’action (dossier sortie, règles de nommage) via Settings.
+- [ ] Normalisation d’URL renforcée (protocol‑relative `//`, `www.`) optionnelle.
+- [ ] Panneau de logs consultable (export .md) au lieu de simples Notices.
+- [ ] Documentation utilisateur (README + doc Obsidian).
+
+
+### à évaluer
+
+> [!info]
+> On fera peut-être, c'est moi qui décide de faire en déplaçant dans la section à `faire`
+
+- [ ] Détail de prévisualisation par ligne (premiers titres créés/MAJ/erreurs).
+- [ ] Option multi‑sélection de CSV et exécution séquentielle.
+- [ ] Barre de progression et estimation (grossière) sur gros CSV.
+- [ ] Compat noms de fichiers **Windows** (mode strict optionnel).
+- [ ] Tests unitaires `core/transform`, `yamlMaster`, `mapping.wordpress`.
+- [ ] Tests d’intégration sur un échantillon CSV (3 cas: simple, multi‑images, update).
+### rejeté
+
+
+## Description
+
+> [!info] 
+> description précise et exhaustive des informations nécessaires à la compréhension et au développement des actions.
+> Format d'entrées/sorties, avec exemples, notes, , tests, etc
+
+
+### Tableau — Mapping YAML maître ↔ Source (WordPress CSV) + Règles
 
 | **YAML maître**                                                                | **Correspondance mapping source (CSV WordPress)** | **Règles (calcul / dérivation / modif)**                                                                                                                                                 |
 | ------------------------------------------------------------------------------ | ------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -37,40 +109,11 @@
 | wp_carnet_on                                                                   | wp_carnet_on                                      | **Booléen** : **true** si la valeur source est **non vide** ; **false** si **vide**.                                                                                                     |
 | wp_status                                                                      | wp_status                                         | Copier tel quel (`publish / pending / draft / …`).                                                                                                                                       |
 
-## Règle — Peuplement de `lien_projet` depuis `wp_categories`
+### Règle — Peuplement de `lien_projet` depuis `wp_categories`
 
 `lien_projet` est généré **directement** depuis `wp_categories` qui contient les **names** (pas les slugs) hiérarchisés par le caractère `>` : on split sur `>`, on trim les espaces, on ignore les segments vides, on **conserve casse et accents**, on **déduplique en gardant l’ordre**, puis on transforme chaque segment en wikilink au format **"[[Name]]"** (guillemets doubles inclus) pour produire la liste YAML ; si `wp_categories` est vide/absent ⇒ `lien_projet: []` (ex.: `Vidéo>Minutes` ⇒ `[[Vidéo]]`, `[[Minutes]]`).
 
-## Logs
-- 2025-10-17 — Ajout de la modale de prévisualisation (dry‑run) avec boutons **Mettre à jour** / **Annuler**.
-- 2025-10-17 — Branchement I/O Obsidian (FileSystemAdapter), picker CSV via **FuzzySuggestModal**.
-- 2025-10-17 — Gestion des erreurs : création automatique de notes dans `NEW/ERRORS/` pour les lignes en échec.
-- 2025-10-17 — `maj_wp` fixé à **false** (les infos viennent de WP, pas de renvoi).
-- 2025-10-17 — Alignement mapping v2 : `tags` séparateur `,`, `img_id` listé **avec guillemets**, `post_date`/`post_mod` en ISO avec `T`.
-- 2025-10-17 — Émetteur YAML : **auto‑quoting** des scalaires et des éléments de liste à risque (guillemets, `: `, etc.).
-- 2025-10-17 — Sanitation des fichiers : conserver **?** et **!** et les `"` (compat Windows à discuter).
-
-## Roadmap
-- [x] Import basique CSV → YAML maître, création/mise à jour idempotente par `post_id`.
-- [x] Picker CSV + prévisualisation (dry‑run) avec confirmation.
-- [x] Gestion erreurs → `NEW/ERRORS/` + log.
-- [x] `maj_wp` = false.
-- [ ] création conditionnelle du corps de la note
-- [ ] **Options**: Switch **Créer seulement / MAJ seulement**.
-- [ ] Détail de prévisualisation par ligne (premiers titres créés/MAJ/erreurs).
-- [ ] Option multi‑sélection de CSV et exécution séquentielle.
-- [ ] Barre de progression et estimation (grossière) sur gros CSV.
-- [ ] **Options**: Dry‑run par défaut (toggle dans la modale).
-- [ ] **Options**: Paramètres (dossier sortie, strict noms Windows). Paramètres d’action (dossier sortie, règles de nommage) via Settings.
-- [ ] Normalisation d’URL renforcée (protocol‑relative `//`, `www.`) optionnelle.
-- [ ] Compat noms de fichiers **Windows** (mode strict optionnel).
-- [ ] Tests unitaires `core/transform`, `yamlMaster`, `mapping.wordpress`.
-- [ ] Tests d’intégration sur un échantillon CSV (3 cas: simple, multi‑images, update).
-- [ ] Panneau de logs consultable (export .md) au lieu de simples Notices.
-- [ ] Documentation utilisateur (README + doc Obsidian).
-
-
-## Corps de la note
+### Corps de la note
 Dans l'ordre :
 Pour toutes : (si plusieurs entrées prendre la 1ère)
 ```
@@ -96,7 +139,7 @@ Pour toutes :
 ```
 
 
-### Exemple 1, sans wp_a_videolink_gen
+#### Exemple 1, sans wp_a_videolink_gen
 - titre de la note : Arbres, immeuble, nuit. Paris. Journal du mardi 2 janvier 2024.
 - wp_img_url: https://www.pierregelas.fr/wp-content/uploads/2024/11/310_9142_2024-01-02_21h07_WP.webp
 
@@ -112,7 +155,7 @@ résultat :
 ![[Arbres, immeuble, nuit. Paris. Journal du mardi 2 janvier 2024._notes]]
 ```
 
-### Exemple 2, avec wp_a_videolink_gen
+#### Exemple 2, avec wp_a_videolink_gen
 - titre de la note : Ravie et Raoûl glandent près de la fenêtre. Samedi 30 novembre 2024 à 17h51.
 - wp_img_url: https://www.pierregelas.fr/wp-content/uploads/2025/06/2024-11-30-17-51_ravieetr_mvign.webp
 - wp_a_videolink_gen: https://youtu.be/aEdyZYL0lWs
@@ -131,9 +174,30 @@ résultat :
 ![[Ravie et Raoûl glandent près de la fenêtre. Samedi 30 novembre 2024 à 17h51._notes]]
 ```
 
-## AJOUT : demander le chemin
+
+
+
+### AJOUT : demander le chemin
 Dans la modale, en haut, demander en liste déroulante (tous les dossiers existants dans la vault) ou enregistrer les fichiers
+
 
 ## Notes de test
 
+> [!info] 
+> notes de test que je copie colle au fur et à mesure, je gère cette section
+
 ## Logs
+
+> [!info] 
+> coller ici les logs de chaque session, utiliser toujours la mêe forme : 
+> FORME À DÉFINIR
+> géré par chatgpt pour l'update, la maintenance, les ajouts, le maintien de la cohérence de style.
+
+
+- 2025-10-17 — Ajout de la modale de prévisualisation (dry‑run) avec boutons **Mettre à jour** / **Annuler**.
+- 2025-10-17 — Branchement I/O Obsidian (FileSystemAdapter), picker CSV via **FuzzySuggestModal**.
+- 2025-10-17 — Gestion des erreurs : création automatique de notes dans `NEW/ERRORS/` pour les lignes en échec.
+- 2025-10-17 — `maj_wp` fixé à **false** (les infos viennent de WP, pas de renvoi).
+- 2025-10-17 — Alignement mapping v2 : `tags` séparateur `,`, `img_id` listé **avec guillemets**, `post_date`/`post_mod` en ISO avec `T`.
+- 2025-10-17 — Émetteur YAML : **auto‑quoting** des scalaires et des éléments de liste à risque (guillemets, `: `, etc.).
+- 2025-10-17 — Sanitation des fichiers : conserver **?** et **!** et les `"` (compat Windows à discuter).

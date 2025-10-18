@@ -98,6 +98,10 @@ Sélecteur de CSV (au lieu du “dernier” seulement) • Niveaux de verbosité
 - **v0.x — Logger commun (Minutes/Journal/Archives/Restes)**  
 Brancher le logger conditionnel (ON/OFF) sur toutes les actions pour des traces uniformes.
 
+- **v0.x - Créer une action Sanity / Cohérence check.
+	- parcourir les notes et générer un log suivant certains critères
+		- exemple : Avertissement ! Cette note n'a pas de titre_1 et titre_2
+
 
 - [ ] Migrer progressivement les autres actions sur `@core/*` (sans casse).
 - [ ] Paramétrage centralisé (Settings tab) pour options communes (dossiers, nommage, compat Windows, normalisation).
